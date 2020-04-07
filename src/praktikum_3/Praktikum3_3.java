@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class Praktikum3_3 extends javax.swing.JFrame {
 
+    private String nim = "";
+    private String nama = "";
+    private String kelas = "";
     /**
      * Creates new form Praktikum3_3
      */
@@ -153,12 +156,18 @@ public class Praktikum3_3 extends javax.swing.JFrame {
             txtNim.setEnabled(true);
             txtNama.setEnabled(true);
             txtKelas.setEnabled(true);
+            txtNim.setText("");
+            txtNama.setText("");
+            txtKelas.setText("");
             
             txtNim.requestFocus();
         }
         else {
             //simpan Data
-            JOptionPane.showMessageDialog(null, "Menyimpan data NIM '" + txtNim.getText() + "' Nama '" + txtNama.getText() + " " + txtKelas.getText() + "'");
+            nim = txtNim.getText();
+            nama = txtNama.getText();
+            kelas = txtKelas.getText();
+            JOptionPane.showMessageDialog(null, "Menyimpan data NIM '" + nim + "' Nama '" + nama + " " + kelas + "'");
             
             tblTambah.setText("Tambah");
             tblTambah.setMnemonic('T');
@@ -198,10 +207,17 @@ public class Praktikum3_3 extends javax.swing.JFrame {
             }
         }
         else {
-
-            txtNim.setText("");
-            txtNama.setText("");
-            txtKelas.setText("");
+            
+            if (nama.isEmpty()){
+                txtNim.setText("");
+                txtNama.setText("");
+                txtKelas.setText("");
+            }
+            else {
+                txtNim.setText(nim);
+                txtNama.setText(nama);
+                txtKelas.setText(kelas);
+            }
 
             tblTambah.setText("Tambah");
             tblTambah.setMnemonic('T');
